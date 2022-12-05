@@ -1,0 +1,23 @@
+{% extends 'anime/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container text-white bg-black bg-gradient">
+
+    <div class="row">
+    
+        <div class="col-sm" style="height:500px;">
+        {% for w in watch %}
+        <iframe src="{{w.link}}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="top:0;left:0;width:100%;height:100%;" title="[Chiaki] Spy X Family - 20 (1080P).mp4"></iframe>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+        {% endfor %}
+
+        </div>
+    
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'anime/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container overflow-auto bg-black bg-gradient">
+
+  <div class="container">
+  
+    <div class="text-center p-3 text-light" style="height:80px;">
+      <h1 style="color:tomato;">Latest Updates</h1>
+    </div>
+  
+  </div>
+
+
+  <div class="container p-1 text-light overflow-hidden" style="height:550px;">
+
+    {% for anime in latest_anime_list %}
+  
+   <a href="{% url 'anime:episode' anime.id %}" class="text-light">
+    <div class="float-start p-1 rounded" style="width:48%;background-color: rgba(31, 31, 90, 0.96);">
+      <div style="width:100%;height:90%;">
+      <!--<img src="{{anime.photo.url}}" style="width:100%;height:200px;">-->
+        <div class="rounded" style="width:100%;height:200px;background-image: url( '{{anime.photo.url}}');background-repeat:no-repeat;background-size:cover;background-blend-mode:darken;">
+        </div>
+      </div>
+        <div class="col overflow-auto" style="width:100%;">
+          <h4>{{anime.title}}</h4>
+          <h6 class="float-start" style="color:tomato;">{{anime.genre}} | <span class="text-warning">{{anime.type}}</span></h6>
+        </div>
+      
+    </div>
+   </a>
+
+    
+    <div class="float-start" style="width:2%;height:280px;">
+
+    </div>
+
+    {% endfor %}
+
+  </div>
+
+</div>
+
+<div class="container overflow-auto bg-black bg-gradient">
+
+  <div class="container">
+  
+    <div class="text-center p-3 text-light" style="height:80px;">
+      <h1 style="color:tomato;">Newly Added Feeds</h1>
+    </div>
+  
+  </div>
+
+
+  <div class="container p-1 text-light overflow-auto bg-black bg-gradient" style="height:500px;">
+
+    {% for anime in anime_list %}
+  
+   <a href="{% url 'anime:episode' anime.id %}" class="text-light">
+    <div class="float-start p-1 rounded" style="width:48%;background-color: rgba(31, 31, 90, 0.96);">
+      <div style="width:100%;height:90%;">
+      <!--<img src="{{anime.photo.url}}" style="width:100%;height:200px;">-->
+        <div class="rounded" style="width:100%;height:200px;background-image: url( '{{anime.photo.url}}');background-repeat:no-repeat;background-size:cover;background-blend-mode:darken;">
+        </div>
+      </div>
+        <div class="col overflow-auto" style="width:100%;">
+          <h4>{{anime.title}}</h4>
+          <h6 class="float-start" style="color:tomato;">{{anime.genre}} | <span class="text-warning">{{anime.type}}</span></h6>
+        </div>
+      
+    </div>
+   </a>
+
+    
+    <div class="float-start" style="width:2%;height:280px;">
+
+    </div>
+
+    {% endfor %}
+
+  </div>
+
+</div>
+
+
+
+{% endblock %}
